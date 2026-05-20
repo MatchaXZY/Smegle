@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smegle – Talk to Strangers Instantly</title>
+  <meta name="description" content="Free random video chat with strangers. Click start and instantly connect." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff6b00'/><path d='M20 35 L55 35 L55 50 L70 42 L70 62 L55 54 L55 68 L20 68 Z' fill='white'/></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     HOME SCREEN
+════════════════════════════════════════════════════════ -->
+<div id="home-screen" class="screen">
+  <div class="home-content">
+    <!-- Logo -->
+    <div class="home-logo">
+      <div class="logo-icon">
+        <!-- Video camera icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="13" height="12" rx="2.5" fill="white"/>
+          <path d="M15 9.5L21 6.5V17.5L15 14.5V9.5Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-wordmark"><span>S</span>megl<span>e</span></div>
+    </div>
+
+    <!-- Tagline -->
+    <p class="home-tagline">Talk to strangers instantly.</p>
+
+    <!-- CTA -->
+    <button class="btn-start" id="btn-start-video">
+      ▶ &nbsp;Start Videoing
+    </button>
+
+    <!-- Online Count -->
+    <div class="online-count">
+      <div class="online-dot"></div>
+      <span id="home-online-count">Loading...</span>
+    </div>
+  </div>
+
+  <div class="home-footer">
+    By using Smegle you accept our
+    <a href="#" onclick="return false">Terms of Service</a>.
+    Be kind. Be respectful.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CHAT SCREEN
+════════════════════════════════════════════════════════ -->
+<div id="chat-screen" class="screen hidden">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo" id="nav-logo-home" style="cursor:pointer">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="6" width="13" height="12" rx="2.5" fill="white"/>
+          <path d="M15 9.5L21 6.5V17.5L15 14.5V9.5Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="nav-logo-text"><span>S</span>megle</div>
+    </div>
+
+    <div class="nav-status" id="nav-status">
+      <div class="nav-status-dot"></div>
+      <span id="nav-status-text">Initialising…</span>
+    </div>
+
+    <div class="online-count" style="padding:5px 14px;font-size:12px;">
+      <div class="online-dot"></div>
+      <span id="chat-online-count">—</span>
+    </div>
+  </nav>
+
+  <!-- Main area -->
+  <div class="chat-main">
+
+    <!-- ── Left: videos + controls ── -->
+    <div class="video-side">
+      <div class="videos-row">
+
+        <!-- My video -->
+        <div class="video-panel" id="local-panel">
+          <video id="local-video" autoplay muted playsinline></video>
+          <div class="video-label">You</div>
+
+          <!-- Camera-loading overlay -->
+          <div class="video-overlay" id="local-overlay">
+            <div class="overlay-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+              </svg>
+            </div>
+            <div class="overlay-text">Starting camera…</div>
+          </div>
+        </div>
+
+        <!-- Remote video -->
+        <div class="video-panel" id="remote-panel">
+          <video id="remote-video" autoplay playsinline></video>
+          <div class="video-label">Stranger</div>
+
+          <!-- Waiting overlay -->
+          <div class="video-overlay" id="remote-overlay">
+            <div class="spinner"></div>
+            <div class="overlay-text" id="remote-overlay-text">Finding someone…</div>
+            <div class="overlay-sub" id="remote-overlay-sub"></div>
+          </div>
+
+          <!-- Stranger disconnected -->
+          <div class="disconnect-overlay" id="disconnect-overlay">
+            <div class="disconnect-emoji">👋</div>
+            <div class="disconnect-text">Stranger has disconnected</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-bar">
+        <button class="btn-ctrl btn-skip" id="btn-skip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 4l10 8-10 8V4z"/><line x1="19" y1="4" x2="19" y2="20"/>
+          </svg>
+          <span>Skip</span>
+        </button>
+
+        <button class="btn-ctrl btn-stop" id="btn-stop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+          </svg>
+          <span>Stop</span>
+        </button>
+
+        <button class="btn-ctrl btn-mute" id="btn-mute" title="Mute mic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="mic-icon">
+            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
+            <path d="M19 10v2a7 7 0 01-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+          <span>Mute</span>
+        </button>
+
+        <button class="btn-ctrl btn-cam" id="btn-cam" title="Toggle camera">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="cam-icon">
+            <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+          </svg>
+          <span>Camera</span>
+        </button>
+
+        <button class="btn-ctrl btn-report" id="btn-report" title="Report user">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h14l-2 7 2 7H3l2-7-2-7z"/>
+            <line x1="3" y1="12" x2="3" y2="12"/>
+          </svg>
+          <span>Report</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Right: chat ── -->
+    <div class="chat-side">
+      <div class="chat-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+        Chat
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <div class="msg-system" id="chat-welcome">Waiting for a match…</div>
+      </div>
+
+      <div class="chat-input-area">
+        <textarea
+          class="chat-input"
+          id="chat-input"
+          placeholder="Say something…"
+          rows="1"
+          maxlength="2000"
+          disabled
+        ></textarea>
+        <button class="btn-send" id="btn-send" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     REPORT MODAL
+════════════════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="report-modal">
+  <div class="modal">
+    <h3>Report this user</h3>
+    <div class="modal-reasons">
+      <button class="reason-btn" data-reason="nudity">Nudity / Sexual content</button>
+      <button class="reason-btn" data-reason="harassment">Harassment / Bullying</button>
+      <button class="reason-btn" data-reason="hate">Hate speech</button>
+      <button class="reason-btn" data-reason="spam">Spam / Bot</button>
+      <button class="reason-btn" data-reason="minor">Underage user</button>
+      <button class="reason-btn" data-reason="other">Other</button>
+    </div>
+    <button class="modal-cancel" id="report-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TOAST CONTAINER
+════════════════════════════════════════════════════════ -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- Scripts -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
