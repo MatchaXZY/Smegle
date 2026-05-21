@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – Smegle</title>
+  <link rel="icon" type="image/png" href="/logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;-webkit-font-smoothing:antialiased}
+    a{color:#2196f3;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 48px;background:#fff;border-bottom:1px solid #e2e8f0;
+      position:sticky;top:0;z-index:10;
+    }
+    .topbar img{height:34px;width:auto;object-fit:contain}
+    .topbar-back{
+      font-size:14px;font-weight:500;color:#64748b;
+      display:flex;align-items:center;gap:6px;
+    }
+    .topbar-back svg{width:16px;height:16px}
+    .topbar-back:hover{color:#0f172a}
+
+    .page{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+
+    .page-tag{
+      display:inline-block;
+      background:#e8f4ff;color:#2196f3;border:1px solid #bfdbfe;
+      font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px;
+      text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;
+    }
+    h1{font-size:36px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+    .meta{font-size:14px;color:#94a3b8;margin-bottom:40px}
+    .divider{height:1px;background:#e2e8f0;margin:32px 0}
+
+    h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#0f172a}
+    p{font-size:15px;line-height:1.75;color:#475569;margin-bottom:14px}
+    ul{padding-left:20px;margin-bottom:14px}
+    li{font-size:15px;line-height:1.75;color:#475569;margin-bottom:6px}
+    .section{margin-bottom:36px}
+
+    .highlight-box{
+      background:#e8f4ff;border:1px solid #bfdbfe;border-radius:10px;
+      padding:18px 20px;margin-bottom:28px;
+    }
+    .highlight-box p{color:#1e40af;margin:0;font-weight:500}
+
+    .data-table{
+      width:100%;border-collapse:collapse;margin-bottom:14px;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;
+    }
+    .data-table th{
+      background:#f1f5f9;padding:10px 14px;font-size:13px;font-weight:600;color:#64748b;text-align:left;
+      text-transform:uppercase;letter-spacing:0.5px;
+    }
+    .data-table td{padding:12px 14px;font-size:14px;color:#475569;border-top:1px solid #e2e8f0}
+    .data-table tr:nth-child(even) td{background:#f8fafc}
+
+    footer{
+      text-align:center;padding:24px;
+      font-size:13px;color:#94a3b8;
+      border-top:1px solid #e2e8f0;
+      margin-top:60px;
+    }
+
+    @media(max-width:600px){
+      .topbar{padding:14px 20px}
+      h1{font-size:28px}
+      .data-table{font-size:13px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/"><img src="/logo.png" alt="Smegle"/></a>
+  <a class="topbar-back" href="/">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Smegle
+  </a>
+</div>
+
+<div class="page">
+  <div class="page-tag">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: January 1, 2026</p>
+
+  <div class="highlight-box">
+    <p>Smegle is built with privacy first. We do not require you to create an account, and we do not sell your data to anyone.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. What We Collect</h2>
+    <p>We collect the minimum amount of data necessary to operate the Service:</p>
+    <table class="data-table">
+      <tr><th>Data</th><th>Why</th><th>How long</th></tr>
+      <tr><td>IP address</td><td>Abuse prevention & legal compliance</td><td>30 days</td></tr>
+      <tr><td>Socket connection ID</td><td>Real-time matchmaking</td><td>Session only</td></tr>
+      <tr><td>Report logs</td><td>Moderation & safety</td><td>90 days</td></tr>
+      <tr><td>Browser type / OS</td><td>Technical debugging</td><td>Session only</td></tr>
+    </table>
+    <p>We do <strong>not</strong> store video streams, audio, or chat messages. All communication is peer-to-peer via WebRTC and passes directly between users' browsers.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>2. Video & Audio</h2>
+    <p>Video and audio streams are transmitted directly between users using WebRTC (peer-to-peer) technology. These streams do not pass through our servers and are never recorded or stored by Smegle.</p>
+    <p>However, other users may choose to record their screen independently. Be aware of this before showing anything you wouldn't want recorded.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>3. Chat Messages</h2>
+    <p>Chat messages are relayed through our signaling server in real time to enable communication. They are not stored, logged, or retained in any database. Once a session ends, messages are gone permanently.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>4. Cookies</h2>
+    <p>Smegle does not use tracking cookies or advertising cookies. We may use a minimal session cookie to maintain your WebSocket connection. No third-party advertising networks have access to your data.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>5. Third-Party Services</h2>
+    <p>We use the following third-party services:</p>
+    <ul>
+      <li><strong>Google STUN servers</strong> — used to establish peer-to-peer connections. Google may log connection requests per their own privacy policy.</li>
+      <li><strong>Google Fonts</strong> — used to load the Inter typeface. Google may log font requests per their privacy policy.</li>
+    </ul>
+    <p>We do not use Google Analytics, Facebook Pixel, or any other advertising or tracking services.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>6. Children's Privacy</h2>
+    <p>Smegle is strictly for users aged 18 and over. We do not knowingly collect any data from minors. If you believe a minor has used the Service, please report it immediately using the in-app report button.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>7. Law Enforcement</h2>
+    <p>We will cooperate with law enforcement agencies when required to do so by law. This may include disclosing IP address logs or report data in response to valid legal requests.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>8. Your Rights</h2>
+    <p>Because we do not store personally identifiable information tied to an account, most data subject rights (access, deletion, portability) are satisfied automatically — there is no profile to delete. If you have a specific concern, use the in-app report function.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will update the "Last updated" date at the top of this page. Continued use of the Service after updates constitutes acceptance of the revised policy.</p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Smegle &nbsp;·&nbsp; <a href="/terms">Terms</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a>
+</footer>
+
+</body>
+</html>
