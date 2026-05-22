@@ -1,204 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smegle – Talk to Strangers Instantly</title>
-  <meta name="description" content="Free random video chat with strangers. Click start and instantly connect." />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff6b00'/><path d='M20 35 L55 35 L55 50 L70 42 L70 62 L55 54 L55 68 L20 68 Z' fill='white'/></svg>" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+  <title>Smegle – Talk to Strangers</title>
+  <meta name="description" content="Free instant random video chat. No signup. Connect worldwide."/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     HOME SCREEN
-════════════════════════════════════════════════════════ -->
+<!-- ════════════════════ HOME ════════════════════ -->
 <div id="home-screen" class="screen">
-  <div class="home-content">
-    <!-- Logo -->
-    <div class="home-logo">
-      <div class="logo-icon">
-        <!-- Video camera icon -->
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="6" width="13" height="12" rx="2.5" fill="white"/>
-          <path d="M15 9.5L21 6.5V17.5L15 14.5V9.5Z" fill="white"/>
-        </svg>
+  <nav class="home-nav">
+    <img src="logo.png" alt="Smegle" class="home-nav-logo"/>
+    <div class="home-nav-right">
+      <div class="online-pill">
+        <span class="online-dot"></span>
+        <span id="home-online-count">—</span>
       </div>
-      <div class="logo-wordmark"><span>S</span>megl<span>e</span></div>
-    </div>
-
-    <!-- Tagline -->
-    <p class="home-tagline">Talk to strangers instantly.</p>
-
-    <!-- CTA -->
-    <button class="btn-start" id="btn-start-video">
-      ▶ &nbsp;Start Videoing
-    </button>
-
-    <!-- Online Count -->
-    <div class="online-count">
-      <div class="online-dot"></div>
-      <span id="home-online-count">Loading...</span>
-    </div>
-  </div>
-
-  <div class="home-footer">
-    By using Smegle you accept our
-    <a href="#" onclick="return false">Terms of Service</a>.
-    Be kind. Be respectful.
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════
-     CHAT SCREEN
-════════════════════════════════════════════════════════ -->
-<div id="chat-screen" class="screen hidden">
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-logo" id="nav-logo-home" style="cursor:pointer">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="6" width="13" height="12" rx="2.5" fill="white"/>
-          <path d="M15 9.5L21 6.5V17.5L15 14.5V9.5Z" fill="white"/>
-        </svg>
-      </div>
-      <div class="nav-logo-text"><span>S</span>megle</div>
-    </div>
-
-    <div class="nav-status" id="nav-status">
-      <div class="nav-status-dot"></div>
-      <span id="nav-status-text">Initialising…</span>
-    </div>
-
-    <div class="online-count" style="padding:5px 14px;font-size:12px;">
-      <div class="online-dot"></div>
-      <span id="chat-online-count">—</span>
+      <button class="btn-theme" id="btn-theme" title="Toggle theme">
+        <svg id="icon-dark"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
   </nav>
 
-  <!-- Main area -->
-  <div class="chat-main">
+  <main class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Free &nbsp;·&nbsp; No sign up &nbsp;·&nbsp; Instant</div>
+      <h1 class="hero-heading">Talk to<br/><span class="hero-heading-highlight">anyone,</span><br/>anywhere.</h1>
+      <p class="hero-desc">Random video chat with real people worldwide.<br/>One click — you're live in seconds.</p>
 
-    <!-- ── Left: videos + controls ── -->
+      <div class="home-actions">
+        <button class="btn-start" id="btn-start-video">
+          <span class="btn-start-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 10l4.55-2.07A1 1 0 0121 8.87v6.26a1 1 0 01-1.45.9L15 14v-4zM3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+          </span>
+          Start Videoing
+        </button>
+        <button class="btn-private-home" id="btn-open-private">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Private Room
+        </button>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Anonymous</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Instant match</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Worldwide</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-2 11-2 11 2 11 2v12s-4 2-11 2S1 18 1 18V6z"/></svg>No tracking</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="preview-window">
+        <div class="preview-bar">
+          <div class="preview-dots"><span></span><span></span><span></span></div>
+          <div class="preview-bar-label">smegle.com</div>
+        </div>
+        <div class="preview-videos">
+          <div class="preview-vid preview-you">
+            <div class="preview-vid-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <span class="preview-vid-label">You</span>
+          </div>
+          <div class="preview-vid preview-stranger">
+            <div class="preview-vid-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <span class="preview-vid-label">Stranger</span>
+            <div class="preview-connected-badge">Live</div>
+          </div>
+        </div>
+        <div class="preview-chat">
+          <div class="preview-msg preview-msg-stranger">Hey! Where are you from?</div>
+          <div class="preview-msg preview-msg-you">Australia! You?</div>
+          <div class="preview-msg preview-msg-stranger">USA! Small world</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="stats-strip">
+    <div class="stat-item"><div class="stat-number" id="stat-online">—</div><div class="stat-label">Online now</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-number">&lt;1s</div><div class="stat-label">Avg match time</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-number">190+</div><div class="stat-label">Countries</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-number">Free</div><div class="stat-label">Always</div></div>
+  </div>
+
+  <footer class="home-footer">
+    &copy; 2026 Smegle &nbsp;·&nbsp; <a href="/terms">Terms</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a>
+  </footer>
+</div>
+
+<!-- Private room modal -->
+<div class="modal-backdrop" id="private-modal">
+  <div class="modal">
+    <h3>Private Room</h3>
+    <p style="font-size:13px;color:var(--text-dim);margin-bottom:18px;">Create a room and share the code with a friend, or enter a code to join their room.</p>
+    <button class="btn-primary" id="btn-create-room" style="width:100%;margin-bottom:10px;">Create Room &amp; Get Code</button>
+    <div class="private-code-display" id="private-code-display" style="display:none">
+      <div class="code-label">Your room code:</div>
+      <div class="code-value" id="private-code-value">——</div>
+      <div class="code-sub">Share this with your friend, then wait for them to join</div>
+      <button class="btn-copy-code" id="btn-copy-code">Copy Code</button>
+    </div>
+    <div class="divider-or"><span>OR</span></div>
+    <input class="code-input" id="join-code-input" placeholder="Enter 6-letter room code" maxlength="6"/>
+    <div class="code-error" id="code-error" style="display:none"></div>
+    <button class="btn-primary" id="btn-join-room" style="width:100%;margin-top:8px;">Join Room</button>
+    <button class="modal-cancel" id="private-modal-cancel" style="margin-top:8px;">Cancel</button>
+  </div>
+</div>
+
+<!-- ════════════════════ CHAT ════════════════════ -->
+<div id="chat-screen" class="screen hidden">
+  <nav class="navbar">
+    <div class="nav-logo" id="nav-logo-home">
+      <img src="logo.png" alt="Smegle"/>
+    </div>
+
+    <div class="nav-center">
+      <div class="nav-status" id="nav-status">
+        <div class="nav-status-dot"></div>
+        <span id="nav-status-text">Starting...</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <span class="nav-online" id="chat-online-count"></span>
+      <button class="btn-diag" id="btn-diag" title="Network diagnostics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </button>
+      <button class="btn-theme-chat" id="btn-theme-chat" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Diagnostics panel -->
+  <div class="diag-panel" id="diag-panel" style="display:none">
+    <div class="diag-grid">
+      <div class="diag-item"><span class="diag-label">ICE State</span><span class="diag-val" id="d-ice">—</span></div>
+      <div class="diag-item"><span class="diag-label">Connection</span><span class="diag-val" id="d-conn">—</span></div>
+      <div class="diag-item"><span class="diag-label">Transport</span><span class="diag-val" id="d-transport">—</span></div>
+      <div class="diag-item"><span class="diag-label">Video RX</span><span class="diag-val" id="d-video">—</span></div>
+      <div class="diag-item"><span class="diag-label">Audio RX</span><span class="diag-val" id="d-audio">—</span></div>
+      <div class="diag-item"><span class="diag-label">Signaling</span><span class="diag-val" id="d-signal">—</span></div>
+    </div>
+    <button class="diag-close" id="diag-close">Close</button>
+  </div>
+
+  <div class="chat-main">
+    <!-- Video + controls -->
     <div class="video-side">
       <div class="videos-row">
-
-        <!-- My video -->
         <div class="video-panel" id="local-panel">
           <video id="local-video" autoplay muted playsinline></video>
           <div class="video-label">You</div>
-
-          <!-- Camera-loading overlay -->
           <div class="video-overlay" id="local-overlay">
-            <div class="overlay-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
-              </svg>
-            </div>
-            <div class="overlay-text">Starting camera…</div>
+            <div class="overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg></div>
+            <span id="local-overlay-text">Starting camera...</span>
           </div>
+          <!-- PiP badge for screen share -->
+          <div class="screen-share-badge" id="local-ss-badge" style="display:none">Screen Share</div>
         </div>
 
-        <!-- Remote video -->
         <div class="video-panel" id="remote-panel">
           <video id="remote-video" autoplay playsinline></video>
           <div class="video-label">Stranger</div>
-
-          <!-- Waiting overlay -->
           <div class="video-overlay" id="remote-overlay">
             <div class="spinner"></div>
-            <div class="overlay-text" id="remote-overlay-text">Finding someone…</div>
-            <div class="overlay-sub" id="remote-overlay-sub"></div>
+            <span id="remote-overlay-text">Finding someone...</span>
           </div>
-
-          <!-- Stranger disconnected -->
           <div class="disconnect-overlay" id="disconnect-overlay">
-            <div class="disconnect-emoji">👋</div>
-            <div class="disconnect-text">Stranger has disconnected</div>
+            <div class="disconnect-text">Stranger disconnected</div>
           </div>
+          <div class="screen-share-badge" id="remote-ss-badge" style="display:none">Screen Share</div>
         </div>
       </div>
 
       <!-- Controls -->
       <div class="controls-bar">
         <button class="btn-ctrl btn-skip" id="btn-skip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 4l10 8-10 8V4z"/><line x1="19" y1="4" x2="19" y2="20"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4l10 8-10 8V4z"/><line x1="19" y1="4" x2="19" y2="20"/></svg>
           <span>Skip</span>
         </button>
-
         <button class="btn-ctrl btn-stop" id="btn-stop">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="4" width="16" height="16" rx="2"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
           <span>Stop</span>
         </button>
-
-        <button class="btn-ctrl btn-mute" id="btn-mute" title="Mute mic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="mic-icon">
-            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
-            <path d="M19 10v2a7 7 0 01-14 0v-2"/>
-            <line x1="12" y1="19" x2="12" y2="23"/>
-            <line x1="8" y1="23" x2="16" y2="23"/>
-          </svg>
+        <button class="btn-ctrl btn-mute" id="btn-mute">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
           <span>Mute</span>
         </button>
-
-        <button class="btn-ctrl btn-cam" id="btn-cam" title="Toggle camera">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="cam-icon">
-            <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
-          </svg>
+        <button class="btn-ctrl btn-cam" id="btn-cam">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
           <span>Camera</span>
         </button>
-
-        <button class="btn-ctrl btn-report" id="btn-report" title="Report user">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 3h14l-2 7 2 7H3l2-7-2-7z"/>
-            <line x1="3" y1="12" x2="3" y2="12"/>
-          </svg>
+        <button class="btn-ctrl btn-screen" id="btn-screen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Share</span>
+        </button>
+        <button class="btn-ctrl btn-report" id="btn-report">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
           <span>Report</span>
         </button>
       </div>
     </div>
 
-    <!-- ── Right: chat ── -->
+    <!-- Chat panel -->
     <div class="chat-side">
       <div class="chat-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-        </svg>
-        Chat
+        <span>Chat</span>
+        <button class="btn-copy-chat" id="btn-copy-chat" title="Copy conversation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
       </div>
 
       <div class="chat-messages" id="chat-messages">
-        <div class="msg-system" id="chat-welcome">Waiting for a match…</div>
+        <div class="msg-system" id="chat-welcome">Waiting for a match...</div>
       </div>
 
+      <!-- Chat input area -->
       <div class="chat-input-area">
-        <textarea
-          class="chat-input"
-          id="chat-input"
-          placeholder="Say something…"
-          rows="1"
-          maxlength="2000"
-          disabled
-        ></textarea>
-        <button class="btn-send" id="btn-send" disabled>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="22" y1="2" x2="11" y2="13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
-        </button>
+        <!-- Toolbar -->
+        <div class="chat-toolbar">
+          <label class="toolbar-btn" title="Send image" for="file-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </label>
+          <input type="file" id="file-input" accept="image/*,image/gif" style="display:none"/>
+
+          <button class="toolbar-btn" id="btn-gif" title="Send GIF">GIF</button>
+
+          <button class="toolbar-btn" id="btn-voice" title="Hold to record voice message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </button>
+
+          <button class="toolbar-btn" id="btn-md" title="Markdown supported" style="font-size:11px;font-weight:700;">MD</button>
+        </div>
+
+        <div class="input-row">
+          <textarea class="chat-input" id="chat-input" placeholder="Message... (markdown supported)" rows="1" maxlength="4000" disabled></textarea>
+          <button class="btn-send" id="btn-send" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+
+        <!-- Voice recording indicator -->
+        <div class="voice-recording" id="voice-recording" style="display:none">
+          <div class="rec-dot"></div>
+          <span>Recording... release to send</span>
+        </div>
+
+        <!-- GIF picker -->
+        <div class="gif-picker" id="gif-picker" style="display:none">
+          <input class="gif-search" id="gif-search" placeholder="Search GIFs (Giphy)..." />
+          <div class="gif-results" id="gif-results">
+            <div class="gif-hint">Type to search GIFs</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     REPORT MODAL
-════════════════════════════════════════════════════════ -->
+<!-- Report Modal -->
 <div class="modal-backdrop" id="report-modal">
   <div class="modal">
     <h3>Report this user</h3>
@@ -214,12 +286,18 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     TOAST CONTAINER
-════════════════════════════════════════════════════════ -->
 <div class="toast-container" id="toast-container"></div>
 
-<!-- Scripts -->
+<!-- Reaction picker (hidden) -->
+<div class="reaction-picker" id="reaction-picker" style="display:none">
+  <span class="reaction-opt" data-emoji="👍">👍</span>
+  <span class="reaction-opt" data-emoji="❤️">❤️</span>
+  <span class="reaction-opt" data-emoji="😂">😂</span>
+  <span class="reaction-opt" data-emoji="😮">😮</span>
+  <span class="reaction-opt" data-emoji="😢">😢</span>
+  <span class="reaction-opt" data-emoji="🔥">🔥</span>
+</div>
+
 <script src="/socket.io/socket.io.js"></script>
 <script src="app.js"></script>
 </body>
